@@ -101,14 +101,14 @@ background:#1c120c;display:grid;place-items:center;
 }
 .mini-vinyl{
 width:36px;height:36px;border-radius:50%;
-background:radial-gradient(circle,#d97732 0 40%,#111 42% 100%);
+background:radial-gradient(circle,#07ad0f 0 40%,#111 42% 100%);
 animation:spin 5s linear infinite;
 }
 .song-info h3{font-size:1.1rem}
 .song-info p{color:#9e9388;margin-top:6px}
 .equalizer{display:flex;align-items:flex-end;gap:4px;height:28px}
 .equalizer span{
-width:4px;background:#eb8a43;border-radius:3px;
+width:4px;background:#079d1d;border-radius:3px;
 animation:bounce 1s infinite alternate;
 }
 .equalizer span:nth-child(2){animation-delay:.15s}
@@ -138,4 +138,301 @@ to{height:28px}
 .description{font-size:1rem}
 .hero-buttons{flex-direction:column;align-items:flex-start}
 .vinyl{width:260px;height:260px}
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    right:-150px;
+    top:-120px;
+
+    background:radial-gradient(circle,
+    rgba(0,255,140,.28),
+    rgba(0,255,140,.12),
+    transparent 70%);
+
+    filter:blur(90px);
+    animation:glowMove 8s ease-in-out infinite alternate;
+    z-index:0;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(120deg,
+    transparent 20%,
+    rgba(0,255,120,.04) 40%,
+    transparent 60%);
+    animation:shine 8s linear infinite;
+}
+.hero-left{
+    animation:slideLeft 1.2s ease;
+}
+
+.hero-right{
+    animation:slideRight 1.2s ease;
+}
+
+@keyframes slideLeft{
+
+0%{
+opacity:0;
+transform:translateX(-100px);
+}
+
+100%{
+opacity:1;
+transform:translateX(0);
+}
+
+}
+
+@keyframes slideRight{
+
+0%{
+opacity:0;
+transform:translateX(100px) scale(.8);
+}
+
+100%{
+opacity:1;
+transform:translateX(0) scale(1);
+}
+
+}
+.vinyl{
+
+animation:
+spin 6s linear infinite,
+float 4s ease-in-out infinite;
+
+box-shadow:
+0 0 25px rgba(0,255,130,.3),
+0 0 70px rgba(0,255,130,.25),
+0 0 120px rgba(0,255,130,.15);
+
+transition:.4s;
+
+}
+
+.vinyl:hover{
+
+transform:scale(1.05);
+
+box-shadow:
+0 0 50px #109d06,
+0 0 120px #09ad17;
+
+}
+.vinyl::after{
+
+content:"";
+
+position:absolute;
+
+width:180px;
+height:8px;
+
+background:white;
+
+opacity:.7;
+
+top:70px;
+right:40px;
+
+border-radius:30px;
+
+transform:rotate(-18deg);
+
+filter:blur(2px);
+
+}
+.music-player{
+
+animation:playerFloat 5s ease-in-out infinite;
+
+box-shadow:
+
+0 10px 35px rgba(0,255,130,.25);
+
+}
+.btn,
+.play-btn{
+
+background:#00c853;
+
+color:white;
+
+box-shadow:
+
+0 0 10px #10b241,
+0 0 30px rgba(0,255,130,.5);
+
+}
+
+.btn:hover,
+.play-btn:hover{
+
+background:#0cba29;
+
+transform:translateY(-6px);
+
+box-shadow:
+
+0 0 20px #089d26,
+0 0 60px #08a12b,
+0 0 120px rgba(0,255,130,.5);
+
+}
+.hero-left h1 span{
+
+color:#00ff88;
+
+text-shadow:
+
+0 0 10px #079014,
+0 0 25px #0a9c14,
+0 0 50px rgba(8, 170, 54, 0.7);
+
+}
+.equalizer span{
+
+animation:equalizer 1s infinite;
+
+}
+
+.equalizer span:nth-child(1){animation-delay:.1s;}
+.equalizer span:nth-child(2){animation-delay:.3s;}
+.equalizer span:nth-child(3){animation-delay:.5s;}
+.equalizer span:nth-child(4){animation-delay:.2s;}
+.equalizer span:nth-child(5){animation-delay:.6s;}
+
+@keyframes equalizer{
+
+0%,100%{
+
+height:6px;
+
+}
+
+50%{
+
+height:30px;
+
+}
+
+}
+.hero{
+
+overflow:hidden;
+
+}
+
+.hero .particle{
+
+position:absolute;
+
+width:5px;
+height:5px;
+
+background:#00ff88;
+
+border-radius:50%;
+
+opacity:.5;
+
+animation:particle 12s linear infinite;
+
+}
+@keyframes glowMove{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:translateY(60px);
+
+}
+
+}
+
+@keyframes shine{
+
+0%{
+
+transform:translateX(-100%);
+
+}
+
+100%{
+
+transform:translateX(100%);
+
+}
+
+}
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-20px);
+
+}
+
+}
+
+@keyframes playerFloat{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+}
+
+@keyframes particle{
+
+0%{
+
+transform:translateY(100vh) scale(.3);
+
+opacity:0;
+
+}
+
+50%{
+
+opacity:.8;
+
+}
+
+100%{
+
+transform:translateY(-150px) scale(1.4);
+
+opacity:0;
+
+}
+
 }
